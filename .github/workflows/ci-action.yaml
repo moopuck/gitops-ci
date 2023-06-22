@@ -70,7 +70,8 @@ jobs:
           # relative path to the place where source code with Dockerfile is located
           context: ./
           # Note: tags has to be all lower-case
-          # tags: |
+          tags: |
+            moopuck/reactapp-ci:${{ github.sha }} 
             # imrishav/gitops01:${{ github.sha }} 
             # ghcr.io/imrishav/gitops01:${{ github.sha }}
           # build on feature branches, push only on main branch

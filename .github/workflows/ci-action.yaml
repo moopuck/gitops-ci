@@ -89,8 +89,10 @@ jobs:
           token: ${{ secrets.G_TOKEN }}
       - name: setup git config
         run: |
+          git config --global user.email "moopuck@gmail.com"
+          git config --global user.name "moopuck"
           echo ${{ github.sha }}
-          sed -i "s#${{ github.actor }}.*#${{ github.actor }}/gitops01:${{ github.sha }}#g" deployment.yaml
+          sed -i "s#${{ github.actor }}.*#${{ github.actor }}/reactapp-ci:${{ github.sha }}#g" deployment.yaml
           git add -A
           git commit -am "Update image for - ${{ github.sha }}"
       - run: echo ${{ github }}
